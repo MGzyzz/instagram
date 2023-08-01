@@ -25,6 +25,11 @@ main{
 .page .header{
   text-align: center;
 }
+.logo-img {
+  height: 51px;
+    width: 175px;
+    margin: 22px auto 12px;
+}
 
 .page .header .logo,
 .page .header p,
