@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{#    {% include 'partial/search_form.html' %}#}
+{##}
+{#    {% if publications %}#}
+{#        {% include 'partial/search_results.html' %}#}
+{#    {% endif %}#}
+
+        {% for publication in publications %}
+    <div class="post mt-4 p-3">
+        <div class="post-header d-flex align-items-center">
+            <a href="{% url 'profile' publication.user.id %}"><img src="{{ publication.user.profile.avatar.url }}" class="post-profile-picture me-2 " alt="Profile Picture"></a>
+            <span class="post-username fw-bold fs-6">{{ publication.user }} {{ publication.created_at|timesince }}</span>
+        </div>
+        <a href="{% url 'detail_publication' publication.id %}"><img src="{{ publication.image.url }}" class="post-image my-3 mb-5 bg-body rounded" alt="Post Image"></a>
+        <div class="post-body">
+        {% if user.is_authenticated %}
+          <form action="{% url 'like' publication.id %}" method="post">
+              {% csrf_token %}
+              {% if  user.is_authenticated and user in publication.user_likes.all %}
+                                <button class="text-danger icons-style"><i class="bi bi-heart-fill icon-width-down icon-hover"></i></button>
+              {% else %}
+                  <button class="text-dark icons-style "><i class="bi bi-heart icon-width-down icon-hover"></i></button>
+
+              {% endif %}
+          </form>
+        {% endif %}
+            <b class="post-text">{{ publication.likes }} отметок "нравится"</b> <br>
+            {% for comment in comments %}
+                {% if comment.publication == publication %}
+                    <p class="mt-3"><b>{{ comment.user }}</b>: {{ comment.text }}</p>
+
+                {% endif %}
+            {% endfor %}
+        {% if user.is_authenticated %}
+        <form action="{% url 'create-comments' publication.id  %}" method="post">
+            {% csrf_token %}
+            <label for="id_comments"></label>
+            <input type="hidden" name="publication" value="{{ publication.id }}">
+            <input type="hidden" name="user" value="{{ user.id }}">
+            <div class="d-flex">
+                <input type="text" class="form-control" id="id_comments" name="text" placeholder="Добавить комментарий">
+                <button type="submit" class="btn text-info border">Опубликовать</button>
+            </div>
+        </form>
+        {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+
+{% endblock %}
