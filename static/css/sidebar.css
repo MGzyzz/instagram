@@ -1,0 +1,110 @@
+.icon-width {
+    font-size: 20px;
+}
+
+.button_hover:hover {
+        background: #f3f3f3;
+
+}
+
+.small-card {
+        max-width: 1000px; /* Здесь вы можете задать нужную ширину для карточки */
+        margin: 0 auto; /* Центрирование карточки */
+    }
+
+/* Новые стили для поста */
+.post {
+    background-color: #fff;
+    max-width: 850px; /* Уменьшаем максимальную ширину блока */
+    margin: auto; /* Центрируем блок на странице */
+}
+
+.post-profile-picture {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.post-username {
+    font-size: 1.1rem;
+}
+
+.post-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.post-title {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.post-text {
+    font-size: 1rem;
+}
+
+.post-footer {
+    font-size: 0.9rem;
+    color: #8e8e8e;
+}
+
+.line-left {
+    border-right: solid 1px;
+}
+
+
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.container-fluid {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.icon-width-down {
+    font-size: 30px;
+}
+
+.height_all {
+    height: 100%;
+}
+
+.btn-color {
+    background: rgb(239, 239, 239);
+    font-weight: 700;
+}
+
+.btn-color:hover {
+    background: rgb(219, 219, 219);
+}
+
+.icon-hover:hover {
+    color: rgb(142,142,142);
+}
+
+
+
+.icons-style {
+  border: none;
+  background: white;
+}
+
+.icons-style-active{
+    color: red;
+}
+
+.icon-width-down {
+    font-size: 30px;
+}
+

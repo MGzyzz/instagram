@@ -253,3 +253,15 @@ main{
     width: 100%;
   }
 }
+
+.width-control {
+  width: 275px;
+}
+
+.icon-width-down {
+    font-size: 20px;
+}
+
+.textarea-width {
+    width: 275px;
+}
