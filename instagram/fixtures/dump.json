@@ -1,0 +1,305 @@
+[
+{
+  "model": "instagram.publication",
+  "pk": 15,
+  "fields": {
+    "user": 8,
+    "image": "publications/carousel-img-1.jpg",
+    "description": "Check_one_post",
+    "likes": 2,
+    "comments_count": 0,
+    "created_at": "2023-08-06T20:03:55.011Z",
+    "updated_at": "2023-08-06T20:28:56.448Z",
+    "user_likes": [
+      9,
+      10
+    ]
+  }
+},
+{
+  "model": "instagram.publication",
+  "pk": 16,
+  "fields": {
+    "user": 9,
+    "image": "publications/carousel-img-2_HTecRcA.jpg",
+    "description": "Check_two_post",
+    "likes": 2,
+    "comments_count": 0,
+    "created_at": "2023-08-06T20:06:22.295Z",
+    "updated_at": "2023-08-06T20:13:19.624Z",
+    "user_likes": [
+      8,
+      10
+    ]
+  }
+},
+{
+  "model": "instagram.publication",
+  "pk": 17,
+  "fields": {
+    "user": 10,
+    "image": "publications/carousel-img-3.jpg",
+    "description": "Check_three_post",
+    "likes": 1,
+    "comments_count": 0,
+    "created_at": "2023-08-06T20:28:17.323Z",
+    "updated_at": "2023-08-06T20:30:13.329Z",
+    "user_likes": [
+      8
+    ]
+  }
+},
+{
+  "model": "instagram.comment",
+  "pk": 43,
+  "fields": {
+    "user": 9,
+    "publication": 15,
+    "text": "Good art",
+    "created_at": "2023-08-06T20:05:52.377Z"
+  }
+},
+{
+  "model": "instagram.comment",
+  "pk": 44,
+  "fields": {
+    "user": 10,
+    "publication": 16,
+    "text": "Nice",
+    "created_at": "2023-08-06T20:07:28.840Z"
+  }
+},
+{
+  "model": "instagram.comment",
+  "pk": 45,
+  "fields": {
+    "user": 10,
+    "publication": 15,
+    "text": "Great",
+    "created_at": "2023-08-06T20:07:47.209Z"
+  }
+},
+{
+  "model": "instagram.comment",
+  "pk": 46,
+  "fields": {
+    "user": 8,
+    "publication": 16,
+    "text": "Good Job!",
+    "created_at": "2023-08-06T20:13:16.912Z"
+  }
+},
+{
+  "model": "instagram.comment",
+  "pk": 47,
+  "fields": {
+    "user": 8,
+    "publication": 15,
+    "text": "Nice",
+    "created_at": "2023-08-06T20:15:11.884Z"
+  }
+},
+{
+  "model": "instagram.comment",
+  "pk": 48,
+  "fields": {
+    "user": 8,
+    "publication": 16,
+    "text": "Good art",
+    "created_at": "2023-08-06T20:24:48.460Z"
+  }
+},
+{
+  "model": "instagram.comment",
+  "pk": 49,
+  "fields": {
+    "user": 8,
+    "publication": 17,
+    "text": "Nice art!",
+    "created_at": "2023-08-06T20:30:23.075Z"
+  }
+},
+{
+  "model": "instagram.comment",
+  "pk": 50,
+  "fields": {
+    "user": 9,
+    "publication": 17,
+    "text": "Good",
+    "created_at": "2023-08-06T20:31:15.073Z"
+  }
+},
+{
+  "model": "instagram.subscription",
+  "pk": 29,
+  "fields": {
+    "subscriber": 9,
+    "followed_user": 8,
+    "created_at": "2023-08-06T20:05:21.101Z"
+  }
+},
+{
+  "model": "instagram.subscription",
+  "pk": 30,
+  "fields": {
+    "subscriber": 8,
+    "followed_user": 9,
+    "created_at": "2023-08-06T20:27:06.473Z"
+  }
+},
+{
+  "model": "instagram.subscription",
+  "pk": 31,
+  "fields": {
+    "subscriber": 10,
+    "followed_user": 9,
+    "created_at": "2023-08-06T20:28:33.216Z"
+  }
+},
+{
+  "model": "instagram.subscription",
+  "pk": 32,
+  "fields": {
+    "subscriber": 8,
+    "followed_user": 10,
+    "created_at": "2023-08-06T20:30:42.068Z"
+  }
+},
+{
+  "model": "instagram.subscription",
+  "pk": 33,
+  "fields": {
+    "subscriber": 9,
+    "followed_user": 10,
+    "created_at": "2023-08-06T20:31:30.446Z"
+  }
+},
+{
+  "model": "accounts.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$dWnSaboVlZyRrbdQKo8Ahf$3bGhGpbNjpZjvsWj42vQhytQ6depxZi46j8aCU9v7oE=",
+    "last_login": "2023-08-06T18:40:51Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "admin",
+    "last_name": "server",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2023-08-01T17:39:43Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.user",
+  "pk": 8,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$FXkq6brwfdJOy0w3Zavrto$fjZtQjyy4qjF6agkUqzwwH/h+tMapKf2psD4o08dc7k=",
+    "last_login": "2023-08-06T20:30:07.576Z",
+    "is_superuser": false,
+    "username": "Check_one",
+    "first_name": "Check_one",
+    "last_name": "",
+    "email": "check_one@mail.ru",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-08-06T17:56:47.539Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.user",
+  "pk": 9,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$T7DMkSDOdB9zJpk7Azykmz$EVy25jeOefU3W99qS2XphaOFqxzKP8itfuYkxrzaU+8=",
+    "last_login": "2023-08-06T20:31:03.384Z",
+    "is_superuser": false,
+    "username": "Check_two",
+    "first_name": "Check_two",
+    "last_name": "",
+    "email": "check_two@mail.ru",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-08-06T18:12:50Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.user",
+  "pk": 10,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$rFmgst5otS1BOsy1LlUrjI$Imo7sFgT7mlDq9k2DkPypeoK6/mdgc64g5vDrxsCkg0=",
+    "last_login": "2023-08-06T20:29:30.370Z",
+    "is_superuser": false,
+    "username": "Check_three",
+    "first_name": "Check_three",
+    "last_name": "",
+    "email": "Check_three@mail.ru",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-08-06T18:21:40.829Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.profile",
+  "pk": 4,
+  "fields": {
+    "user": 1,
+    "avatar": "avatars/default_avatars_user.jpg",
+    "user_information": "",
+    "phone_number": null,
+    "gender": "M",
+    "post_count": 4,
+    "following_count": 0,
+    "followers_count": 1
+  }
+},
+{
+  "model": "accounts.profile",
+  "pk": 6,
+  "fields": {
+    "user": 8,
+    "avatar": "avatars/carousel-img-1.jpg",
+    "user_information": null,
+    "phone_number": null,
+    "gender": null,
+    "post_count": 1,
+    "following_count": 2,
+    "followers_count": 1
+  }
+},
+{
+  "model": "accounts.profile",
+  "pk": 7,
+  "fields": {
+    "user": 9,
+    "avatar": "avatars/carousel-img-2.jpg",
+    "user_information": "This is check two",
+    "phone_number": "12345678987",
+    "gender": "M",
+    "post_count": 1,
+    "following_count": 2,
+    "followers_count": 2
+  }
+},
+{
+  "model": "accounts.profile",
+  "pk": 8,
+  "fields": {
+    "user": 10,
+    "avatar": "avatars/carousel-img-3.jpg",
+    "user_information": "This is Check_three",
+    "phone_number": "12345678987",
+    "gender": "M",
+    "post_count": 1,
+    "following_count": 1,
+    "followers_count": 2
+  }
+}
+]
