@@ -23,7 +23,6 @@
                     <div class="form-content box">
                         <div class="logo">
                             <img src="{% static 'img/logo-light.png' %}" alt="Instagram logo" class="logo-light">
-                            <img src="{% static 'img//images/logo-dark.png' %}" alt="Instagram logo" class="logo-dark">
                         </div>
                         <div class="signin-form" id="signin-form">
                             <form action="{% url 'login' %}?next={{ request.GET.next }}" method="post">
