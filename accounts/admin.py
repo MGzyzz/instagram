@@ -7,22 +7,12 @@ from accounts.models import User, Profile
 
 class ProfileInLine(admin.StackedInline):
     model = Profile
-    fields = ['avatar', 'gender', 'user_information', 'phone_number', 'following_count', 'followers_count']
+    fields = ['avatar', 'gender', 'user_information', 'phone_number', 'post_count', 'following_count', 'followers_count']
 
 
 class UserProfileAdmin(UserAdmin):
+    list_display = ['id', 'username']
     inlines = [ProfileInLine]
-
-
-# class ProfileInline(admin.StackedInline):
-#     model = Profile
-#     fields = ['birth_date', 'avatar']
-#
-#
-# class UserProfileAdmin(UserAdmin):
-#     inlines = [ProfileInline]
-
-# admin.site.register(User, UserProfileAdmin)
 
 
 admin.site.register(User, UserProfileAdmin)
