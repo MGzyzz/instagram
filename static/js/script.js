@@ -17,7 +17,6 @@ document.querySelectorAll('.animate-input').forEach(e => {
         }
     }
 
-    // show password button
     if (button) {
         button.onclick = () => {
             if (input.getAttribute('type') === 'text') {
@@ -37,3 +36,51 @@ checkSigninInput = () => {
         return input.value.trim().length >= 6
     })
 }
+
+    const csrfToken = $('input[name=csrfmiddlewaretoken]').val();
+$(".like-unlike-button").click(function() {
+    var publicationId = $(this).data("publication-id");
+    var likeUnlikeButton = $(this);
+    var isLiked = likeUnlikeButton.hasClass("text-danger");
+    if (isLiked) {
+        $.ajax({
+            url: `/api/publications/${publicationId}/unlike/`,
+            method: "DELETE",
+            headers: {
+                'X-CSRFToken': csrfToken
+            },
+
+            success: function(data) {
+                var likesCountElement = $("#likes-container-" + publicationId);
+            likesCountElement.text(data.likes_count + ' отметок "Нравится"');
+            likeUnlikeButton.removeClass("text-danger");
+            },
+            error: function(xhr, textStatus, errorThrown) {
+                console.log(xhr.responseText);
+            }
+        });
+    } else {
+        $.ajax({
+            url: `/api/publications/${publicationId}/like/`,
+            method: "POST",
+            headers: {
+                'X-CSRFToken': csrfToken
+            },
+
+            success: function(data) {
+                var likesCountElement = $("#likes-container-" + publicationId);
+            likesCountElement.text(data.likes_count + ' отметок "Нравится"');
+            likeUnlikeButton.addClass("text-danger");
+
+            },
+            error: function(xhr, textStatus, errorThrown) {
+                console.log(xhr.responseText);
+            }
+        });
+    }
+    if (isLiked) {
+        likeUnlikeButton.removeClass("text-danger");
+    } else {
+        likeUnlikeButton.addClass("text-danger");
+    }
+});
