@@ -69,7 +69,7 @@ class RegisterView(AuthSuccessUrlMixin, CreateView):
 class Detail(LoginRequiredMixin, DetailView):
     model = get_user_model()
     template_name = 'user/detail.html'
-    context_object_name =  'user'
+    context_object_name = 'user'
     pk_url_kwarg = 'id'
     paginate_related_by = 5
     paginate_related_orphans = 0
