@@ -9,17 +9,15 @@
                     <div class="card-body">
                         <p class="card-text">{{ publication.description }}</p>
                         <hr>
-                        <form action="{% url 'like' publication.id %}" method="post">
-                            {% csrf_token %}
-                            {% if  user.is_authenticated and user in publication.user_likes.all %}
-                                <button class="text-danger icons-style"><i class="bi bi-heart-fill icon-width-down icon-hover"></i></button>
-                            {% else %}
-                                <button class="text-dark icons-style "><i class="bi bi-heart icon-width-down icon-hover"></i></button>
-
-                            {% endif %}
-
-                        </form>
-                        <b>{{ publication.likes }} отметок "Нравится" </b>
+                        <form action="{% url 'api:publication-like' publication.id %}" method="post" class="like-form">
+    {% csrf_token %}
+<button type="button" class="icons-style like-unlike-button {% if is_liked %}text-danger{% endif %}" data-publication-id="{{ publication.id }}" data-is-liked="{{ is_liked }}">
+    <i class="bi bi-heart-fill icon-width-down icon-hover"></i>
+    </button>
+</form>
+                        <div class="likes-container" id="likes-container-{{ publication.id }}">
+        {{ publication.likes }} отметок "Нравится"
+    </div>
                     </div>
                 </div>
             </div>

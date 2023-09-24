@@ -1,11 +1,6 @@
 {% extends 'base.html' %}
 
 {% block content %}
-{#    {% include 'partial/search_form.html' %}#}
-{##}
-{#    {% if publications %}#}
-{#        {% include 'partial/search_results.html' %}#}
-{#    {% endif %}#}
 
         {% for publication in publications %}
     <div class="post mt-4 p-3">
@@ -16,17 +11,16 @@
         <a href="{% url 'detail_publication' publication.id %}"><img src="{{ publication.image.url }}" class="post-image my-3 mb-5 bg-body rounded" alt="Post Image"></a>
         <div class="post-body">
         {% if user.is_authenticated %}
-          <form action="{% url 'like' publication.id %}" method="post">
-              {% csrf_token %}
-              {% if  user.is_authenticated and user in publication.user_likes.all %}
-                                <button class="text-danger icons-style"><i class="bi bi-heart-fill icon-width-down icon-hover"></i></button>
-              {% else %}
-                  <button class="text-dark icons-style "><i class="bi bi-heart icon-width-down icon-hover"></i></button>
-
-              {% endif %}
-          </form>
+          <form action="{% url 'api:publication-like' publication.id %}" method="post" class="like-form">
+    {% csrf_token %}
+        <button type="button" class="icons-style like-unlike-button {% if publication.is_liked %}text-danger{% endif %}" data-publication-id="{{ publication.id }}" data-is-liked="{{ publication.is_liked }}">
+    <i class="bi bi-heart-fill icon-width-down icon-hover"></i>
+    </button>
+</form>
         {% endif %}
-            <b class="post-text">{{ publication.likes }} отметок "нравится"</b> <br>
+            <div class="likes-container" id="likes-container-{{ publication.id }}">
+        {{ publication.likes }} отметок "Нравится"
+    </div>
             {% for comment in comments %}
                 {% if comment.publication == publication %}
                     <p class="mt-3"><b>{{ comment.user }}</b>: {{ comment.text }}</p>
