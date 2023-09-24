@@ -61,8 +61,8 @@ class RegisterForm(UserCreationForm):
         label='Name',
         widget=forms.TextInput(attrs={
             'class': 'form-control',
-            'placeholder': 'First Name'
-        })
+            'placeholder': 'First Name',
+        }), required=False
     )
 
     user_information = forms.CharField(
@@ -70,13 +70,13 @@ class RegisterForm(UserCreationForm):
         widget=forms.Textarea(attrs={
             'class': 'textarea-width',
             'placeholder': 'About me'
-        })
+        }), required=False
     )
 
     phone_number = forms.CharField(
         label='Phone_number',
         widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Phone Number'}
-        )
+                               ), required=False
     )
 
     GENDER_CHOICES = (
@@ -92,7 +92,8 @@ class RegisterForm(UserCreationForm):
 
     class Meta(UserCreationForm.Meta):
         model = User
-        fields = ['username', 'email', 'avatar', 'password1', 'password2', 'first_name', 'user_information', 'phone_number', 'gender']
+        fields = ['username', 'email', 'avatar', 'password1', 'password2', 'first_name', 'user_information',
+                  'phone_number', 'gender']
 
 
 class UserUpdateForm(forms.ModelForm):
