@@ -29,7 +29,10 @@ class Home(ListView):
         if self.search_value:
             context['query'] = urlencode({'search': self.search_value})
 
-        # context['publications'] = self.get_queryset()
+        user = self.request.user
+        for publication in context['publications']:
+            is_liked = publication.user_likes.filter(id=user.id).exists()
+            publication.is_liked = is_liked
 
 
         return context
@@ -63,6 +66,8 @@ class PublicationUserDetail(DetailView):
         publication = self.object
         comments = Comment.objects.filter(publication=publication).order_by('-created_at')
         context['comments'] = comments
+        is_liked = publication.user_likes.filter(id=self.request.user.id).exists()
+        context['is_liked'] = is_liked
         return context
 
 
@@ -92,26 +97,6 @@ class CreatePublication(CreateView):
         profile.post_count += 1
         profile.save()
 
-        return redirect('detail_publication', publication.id)
-
-
-
-class Like(DetailView):
-    model = Publication
-    pk_url_kwarg = 'id'
-
-    def post(self, request, *args, **kwargs):
-        publication = self.get_object()
-        user = request.user
-
-        if user in publication.user_likes.all():
-            publication.user_likes.remove(user)
-            publication.likes -= 1
-            publication.save()
-        else:
-            publication.user_likes.add(user)
-            publication.likes += 1
-            publication.save()
         return redirect('detail_publication', publication.id)
 
 
